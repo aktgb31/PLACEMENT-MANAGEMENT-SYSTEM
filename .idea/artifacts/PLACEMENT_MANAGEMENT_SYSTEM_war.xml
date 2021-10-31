@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PLACEMENT-MANAGEMENT-SYSTEM:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>PLACEMENT-MANAGEMENT-SYSTEM</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="PLACEMENT-MANAGEMENT-SYSTEM-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="PLACEMENT-MANAGEMENT-SYSTEM:war exploded" />
+    </root>
+  </artifact>
+</component>
