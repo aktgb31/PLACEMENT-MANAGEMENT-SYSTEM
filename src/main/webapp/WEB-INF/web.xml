@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>RegisterStudent</servlet-name>
-        <servlet-class>app.RegisterStudent</servlet-class>
+        <servlet-class>app.RegisterStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterStudent</servlet-name>
@@ -13,7 +13,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>LoginStudent</servlet-name>
-        <servlet-class>app.LoginStudent</servlet-class>
+        <servlet-class>app.LoginStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginStudent</servlet-name>
