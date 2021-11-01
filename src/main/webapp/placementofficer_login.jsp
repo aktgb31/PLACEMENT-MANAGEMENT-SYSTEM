@@ -12,10 +12,10 @@
 </head>
 <body>
 <h1>Placement Officer Login</h1>
-<form method="POST" action="loginPlacement">
+<form method="POST" action="LoginPlacement">
 <input type="text" name="userId"   placeholder="Enter your userId"></input>
 <input type="password" name="password"  placeholder="Enter your Password" ></input>
-<div className="button" >Login</div>
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>

@@ -12,5 +12,6 @@
 </head>
 <body>
     <h1>Placement Officer Home Page</h1>
+    <a href="recruiter.jsp">Add companies</a>
 </body>
 </html>
