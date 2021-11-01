@@ -9,23 +9,15 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/login_s")
-public class UserLoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+public class LoginStudent extends HttpServlet {
 
-    public UserLoginServlet() {
-        super();
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String rollNo = request.getParameter("registerNo");
         String password = request.getParameter("password");
 
-        Operations userDao=new Operations();
-
         try {
-            int user = userDao.studentLogin(rollNo, password);
+            int user = Operations.studentLogin(rollNo, password);
             String destPage = "login.jsp";
 
             if (user != 0) {

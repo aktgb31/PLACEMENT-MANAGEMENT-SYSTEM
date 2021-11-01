@@ -11,4 +11,12 @@
         <servlet-name>RegisterStudent</servlet-name>
         <url-pattern>/RegisterStudent</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginStudent</servlet-name>
+        <servlet-class>app.LoginStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginStudent</servlet-name>
+        <url-pattern>/LoginStudent</url-pattern>
+    </servlet-mapping>
 </web-app>
