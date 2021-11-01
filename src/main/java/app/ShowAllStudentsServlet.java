@@ -20,7 +20,7 @@ public class ShowAllStudentsServlet extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
@@ -45,7 +45,7 @@ public class ShowAllStudentsServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }
