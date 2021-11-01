@@ -1,5 +1,9 @@
 package net.codejava;
 
+import app.Recruiter;
+import app.Student;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,10 +24,8 @@ public class ShowAllStudentsServlet extends HttpServlet {
             throws ServletException, IOException {
 
 
-        List<String> details = new ArrayList<String>();
-        UserDAO userDao = new UserDAO();
-
-
+        ArrayList<Student> details = new ArrayList<Student>();
+        Dao userDao=new Dao();
 
 
         try {

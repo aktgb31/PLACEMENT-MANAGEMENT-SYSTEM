@@ -1,4 +1,3 @@
-DROP database placement_management;
 create database placement_management;
 use placement_management;
 

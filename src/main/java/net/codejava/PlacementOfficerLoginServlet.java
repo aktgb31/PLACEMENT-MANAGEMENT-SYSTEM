@@ -1,5 +1,8 @@
 package net.codejava;
 
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
 
@@ -20,7 +23,7 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UserDAO userDao = new UserDAO();
+        Dao userDao=new Dao();
 
         try {
             Connection user = userDao.checkLoginPO(email, password);

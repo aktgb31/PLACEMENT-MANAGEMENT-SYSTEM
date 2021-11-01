@@ -1,5 +1,8 @@
 package net.codejava;
 
+import app.Recruiter;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,15 +23,15 @@ public class ShowCompaniesServlet extends HttpServlet {
             throws ServletException, IOException {
 
 
-        List<String> details = new ArrayList<String>();
-        UserDAO userDao = new UserDAO();
+        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        Dao userDao=new Dao();
 
 
 
 
         try {
             //Connection user = userDao.addStudent(name,registerNo,email,phoneNo,cgpa, placementStatus,placedIn,password);
-            details=userDao.getAllRecruiters();
+            details=Dao.getAllRecruiters();
             Gson gson = new Gson();
 
             String userJSON = gson.toJson(details);

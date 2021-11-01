@@ -1,5 +1,8 @@
 package net.codejava;
 
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
 
@@ -20,10 +23,10 @@ public class UserLoginServlet extends HttpServlet {
         String rollNo = request.getParameter("registerNo");
         String password = request.getParameter("password");
 
-        UserDAO userDao = new UserDAO();
+        Dao userDao=new Dao();
 
         try {
-            Connection user = userDao.checkLogin(rollNo, password);
+            Connection user = userDao.studentLogin(rollNo, password);
             String destPage = "login.jsp";
 
             if (user != null) {

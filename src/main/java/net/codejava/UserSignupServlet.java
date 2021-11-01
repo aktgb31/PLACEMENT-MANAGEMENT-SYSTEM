@@ -1,7 +1,13 @@
 package net.codejava;
 
+import app.Recruiter;
+import app.Student;
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -26,12 +32,18 @@ public class UserSignupServlet extends HttpServlet {
 
         String placedIn = "NULL";
         String password = request.getParameter("password");
-
-
-        UserDAO userDao = new UserDAO();
-
+        ArrayList<Student> details = new ArrayList<Student>();
+        Dao userDao=new Dao();
+        details.setName(name);
+        details.setEmail(email);
+        details.setCgpa(cgpa);
+        details.setPassword(password);
+        details.setPlacementStatus(placementStatus);
+        details.setPhoneNo(phoneNo);
+        details.setRegisterNo(registerNo);
+        details.setPlacedIn(placedIn);
         try {
-            Connection user = userDao.addStudent(name,registerNo,email,phoneNo,cgpa, placementStatus,placedIn,password);
+            Connection user = userDao.addStudent(details);
             String destPage = "register.jsp";
 
             if (user != null) {

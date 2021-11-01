@@ -1,7 +1,12 @@
 package net.codejava;
 
+import app.Recruiter;
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -24,11 +29,16 @@ public class AddRecruiterServlet extends HttpServlet {
 
         String location = request.getParameter("location");
 
-
-        UserDAO userDao = new UserDAO();
+        Dao userDao=new Dao();
+        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        details.setName(name);
+        details.setCtc(ctc);
+        details.setRole(role);
+        details.setLocation(location);
+        details.setDuration(duration);
 
         try {
-            Connection user = userDao.addRecruiter(name,role,ctc,duration,location);
+             Connection user = userDao.addRecruiter(details);
             String destPage = "placement_home.jsp";
 
             if (user != null) {

@@ -1,5 +1,8 @@
 package net.codejava;
 
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
 
@@ -22,7 +25,7 @@ public class ApplyforCompanyServlet extends HttpServlet {
 
 
 
-        UserDAO userDao = new UserDAO();
+        Dao userDao=new Dao();
 
         try {
             Connection user = userDao.studentAppliesForCompany(StudentID,recruiterId);

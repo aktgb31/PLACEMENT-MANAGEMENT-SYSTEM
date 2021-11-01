@@ -1,7 +1,12 @@
 package net.codejava;
 
+import app.Recruiter;
+import com.mysql.jdbc.Connection;
+import database.Dao;
+
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +25,11 @@ public class RemoveRecruiterServlet extends HttpServlet {
         int recruiterid = Integer.parseInt(request.getParameter("recruiterId"));
 
 
-        UserDAO userDao = new UserDAO();
-
+        Dao userDao=new Dao();
+        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        details.setRecruiterId(recruiterid);
         try {
-            Connection user = userDao.removeRecruiter(recruiterid);
+            Connection user = userDao.removeRecruiter(details);
             String destPage = "placement_home.jsp";
 
             if (user != null) {

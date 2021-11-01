@@ -5,8 +5,8 @@ import java.sql.*;
 public class Dao {
     public static Connection getConnection() {
         String connString = "jdbc:mysql://localhost:3306/placement_management";
-        String userName = "admin";
-        String password = "admin123";
+        String userName = "root";
+        String password = "12345678";
         Connection conn = null;
 
         try {
