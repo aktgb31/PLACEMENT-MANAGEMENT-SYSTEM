@@ -27,4 +27,12 @@
         <servlet-name>GetCompanies</servlet-name>
         <url-pattern>/GetCompanies</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginPlacemenOfficer</servlet-name>
+        <servlet-class>app.PlacementOfficerLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginPlacemenOfficer</servlet-name>
+        <url-pattern>/LoginPlacementOfficer</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -11,21 +11,14 @@ import javax.servlet.http.*;
 
 
 public class PlacementOfficerLoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    public PlacementOfficerLoginServlet() {
-        super();
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("userId"));
         int password = Integer.parseInt(request.getParameter("password"));
 
-        Operations userDao=new Operations();
-
         try {
-            int user = userDao.placementOfficerLogin(userId, password);
+            int user = Operations.placementOfficerLogin(userId, password);
             String destPage = "placementofficer_login.jsp";
 
             if (user != 0) {
