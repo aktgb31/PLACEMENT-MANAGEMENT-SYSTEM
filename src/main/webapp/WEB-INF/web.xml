@@ -43,4 +43,12 @@
         <servlet-name>AddRecruiter</servlet-name>
         <url-pattern>/AddRecruiter</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowAllStudents</servlet-name>
+        <servlet-class>app.ShowAllStudentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowAllStudents</servlet-name>
+        <url-pattern>/ShowAllStudents</url-pattern>
+    </servlet-mapping>
 </web-app>

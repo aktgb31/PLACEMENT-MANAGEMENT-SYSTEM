@@ -1,4 +1,5 @@
 package app;
+
 import database.*;
 
 import java.io.*;
@@ -17,10 +18,9 @@ public class AddRecruiterServlet extends HttpServlet {
         String role = request.getParameter("role");
         String ctc = request.getParameter("ctc");
         String duration = request.getParameter("duration");
-
         String location = request.getParameter("location");
 
-        Operations userDao=new Operations();
+        Operations userDao = new Operations();
         Recruiter details = new Recruiter();
         details.setName(name);
         details.setCtc(ctc);

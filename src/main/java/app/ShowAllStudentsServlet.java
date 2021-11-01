@@ -14,13 +14,8 @@ import com.google.gson.*;
 
 
 public class ShowAllStudentsServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    public ShowAllStudentsServlet() {
-        super();
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
