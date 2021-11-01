@@ -20,13 +20,13 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        int password = Integer.parseInt(request.getParameter("password"));
 
         Dao userDao=new Dao();
 
         try {
-            Connection user = userDao.checkLoginPO(email, password);
+            Connection user = userDao.placementOfficerLogin(userId, password);
             String destPage = "placementofficer_login.jsp";
 
             if (user != null) {

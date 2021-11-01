@@ -1,10 +1,13 @@
 package net.codejava;
 
+import app.Application;
+import app.Recruiter;
 import com.mysql.jdbc.Connection;
 import database.Dao;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -22,13 +25,15 @@ public class ApplyforCompanyServlet extends HttpServlet {
             throws ServletException, IOException {
         String StudentID = request.getParameter("registerNo");
         int recruiterId = Integer.parseInt(request.getParameter("recruiterId"));
-
+        ArrayList<Application> details = new ArrayList<Application>();
+        details.setStudentId(StudentID);
+        details.setRecruiterId(recruiterId);
 
 
         Dao userDao=new Dao();
 
         try {
-            Connection user = userDao.studentAppliesForCompany(StudentID,recruiterId);
+            Connection user = userDao.studentAppliesForCompany(details);
             String destPage = "home_s.jsp";
 
             if (user != null) {
