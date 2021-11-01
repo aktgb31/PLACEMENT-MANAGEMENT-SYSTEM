@@ -35,4 +35,12 @@
         <servlet-name>LoginPlacemenOfficer</servlet-name>
         <url-pattern>/LoginPlacementOfficer</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddRecruiter</servlet-name>
+        <servlet-class>app.AddRecruiterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRecruiter</servlet-name>
+        <url-pattern>/AddRecruiter</url-pattern>
+    </servlet-mapping>
 </web-app>
