@@ -9,15 +9,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/register")
-public class UserSignupServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    public UserSignupServlet() {
-        super();
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+public class RegisterStudent extends HttpServlet {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String registerNo = request.getParameter("registerNo");
@@ -29,7 +22,6 @@ public class UserSignupServlet extends HttpServlet {
         String placedIn = "NULL";
         String password = request.getParameter("password");
         Student details = new Student();
-        Operations userDao=new Operations();
         details.setName(name);
         details.setEmail(email);
         details.setCgpa(cgpa);
@@ -39,7 +31,7 @@ public class UserSignupServlet extends HttpServlet {
         details.setRegisterNo(registerNo);
         details.setPlacedIn(placedIn);
         try {
-            int user = userDao.addStudent(details);
+            int user = Operations.addStudent(details);
             String destPage = "register.jsp";
 
             if (user != 0) {
@@ -55,7 +47,7 @@ public class UserSignupServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }
