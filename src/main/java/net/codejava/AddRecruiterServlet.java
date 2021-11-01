@@ -2,7 +2,8 @@ package net.codejava;
 
 import app.Recruiter;
 import com.mysql.jdbc.Connection;
-import database.Dao;
+import database.Dao.*;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class AddRecruiterServlet extends HttpServlet {
 
         String location = request.getParameter("location");
 
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
         Recruiter details = new Recruiter();
         details.setName(name);
         details.setCtc(ctc);
@@ -38,10 +39,10 @@ public class AddRecruiterServlet extends HttpServlet {
         details.setDuration(duration);
 
         try {
-            Connection user = userDao.addRecruiter(details);
+            int user = userDao.addRecruiter(details);
             String destPage = "placement_home.jsp";
 
-            if (user != null) {
+            if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
 
@@ -53,8 +54,8 @@ public class AddRecruiterServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }

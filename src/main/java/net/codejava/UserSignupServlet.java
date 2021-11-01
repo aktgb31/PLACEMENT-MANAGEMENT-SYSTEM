@@ -4,6 +4,7 @@ import app.Recruiter;
 import app.Student;
 import com.mysql.jdbc.Connection;
 import database.Dao;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -33,7 +34,7 @@ public class UserSignupServlet extends HttpServlet {
         String placedIn = "NULL";
         String password = request.getParameter("password");
         Student details = new Student();
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
         details.setName(name);
         details.setEmail(email);
         details.setCgpa(cgpa);
@@ -43,10 +44,10 @@ public class UserSignupServlet extends HttpServlet {
         details.setRegisterNo(registerNo);
         details.setPlacedIn(placedIn);
         try {
-            Connection user = userDao.addStudent(details);
+            int user = userDao.addStudent(details);
             String destPage = "register.jsp";
 
-            if (user != null) {
+            if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 destPage = "login.jsp";
@@ -58,8 +59,8 @@ public class UserSignupServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }

@@ -141,8 +141,8 @@ public class Operations {
         }
     }
 
-    public static Student studentLogin(String registerNo,String password) {
-        Student student = null;
+    public static int studentLogin(String registerNo,String password) {
+
         try {
             Connection connection = Dao.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM students WHERE Email=? and Password=? ");
@@ -150,19 +150,12 @@ public class Operations {
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                student = new Student();
-                student.setRegisterNo(resultSet.getString(1));
-                student.setName(resultSet.getString(2));
-                student.setEmail(resultSet.getString(3));
-                student.setCgpa(resultSet.getFloat(4));
-                student.setPhoneNo(resultSet.getString(5));
-                student.setPlacementStatus(resultSet.getString(6));
-                student.setPlacedIn(resultSet.getString(7));
+                return 1;
             }
         } catch (Exception e) {
-            student=null;
+            return 0;
         }
-        return student;
+        return 0;
     }
 
     public static int placementOfficerLogin(int userId, int password) {

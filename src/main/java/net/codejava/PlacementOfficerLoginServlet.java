@@ -2,6 +2,7 @@ package net.codejava;
 
 import com.mysql.jdbc.Connection;
 import database.Dao;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -23,13 +24,13 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userId"));
         int password = Integer.parseInt(request.getParameter("password"));
 
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
 
         try {
-            Connection user = userDao.placementOfficerLogin(userId, password);
+            int user = userDao.placementOfficerLogin(userId, password);
             String destPage = "placementofficer_login.jsp";
 
-            if (user != null) {
+            if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 destPage = "placement_home.jsp";
@@ -41,8 +42,8 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }

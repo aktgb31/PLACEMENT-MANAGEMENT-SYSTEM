@@ -3,6 +3,7 @@ package net.codejava;
 import app.Recruiter;
 import com.mysql.jdbc.Connection;
 import database.Dao;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -25,14 +26,14 @@ public class RemoveRecruiterServlet extends HttpServlet {
         int recruiterid = Integer.parseInt(request.getParameter("recruiterId"));
 
 
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
         Recruiter details = new Recruiter();
         details.setRecruiterId(recruiterid);
         try {
-            Connection user = userDao.removeRecruiter(details);
+            int user = userDao.removeRecruiter(details);
             String destPage = "placement_home.jsp";
 
-            if (user != null) {
+            if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
 
@@ -44,8 +45,8 @@ public class RemoveRecruiterServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }

@@ -3,6 +3,7 @@ package net.codejava;
 import app.Recruiter;
 import app.Student;
 import database.Dao;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import com.google.gson.*;
 
 @WebServlet("/home")
 public class ShowAllStudentsServlet extends HttpServlet {
@@ -25,7 +27,7 @@ public class ShowAllStudentsServlet extends HttpServlet {
 
 
         ArrayList<Student> details = new ArrayList<Student>();
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
 
 
         try {
@@ -44,8 +46,8 @@ public class ShowAllStudentsServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }

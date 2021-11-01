@@ -4,6 +4,7 @@ import app.Application;
 import app.Recruiter;
 import com.mysql.jdbc.Connection;
 import database.Dao;
+import database.Operations;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -30,13 +31,13 @@ public class ApplyforCompanyServlet extends HttpServlet {
         details.setRecruiterId(recruiterId);
 
 
-        Dao userDao=new Dao();
+        Operations userDao=new Operations();
 
         try {
-            Connection user = userDao.studentAppliesForCompany(details);
+            int user = userDao.studentAppliesForCompany(details);
             String destPage = "home_s.jsp";
 
-            if (user != null) {
+            if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
 
@@ -48,8 +49,8 @@ public class ApplyforCompanyServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ServletException(ex);
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }
