@@ -7,15 +7,8 @@ public class Student {
     private String phoneNo;
     private float cgpa;
     private String placementStatus;
-
-    public Student(String name, String registerNo, String email, String phoneNo, float cgpa, String placementStatus) {
-        this.name = name;
-        this.registerNo = registerNo;
-        this.email = email;
-        this.phoneNo = phoneNo;
-        this.cgpa = cgpa;
-        this.placementStatus = placementStatus;
-    }
+    private String placedIn;
+    private String password;
 
     public String getName() {
         return name;
@@ -41,6 +34,14 @@ public class Student {
         return placementStatus;
     }
 
+    public String getPlacedIn() {
+        return placedIn;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -63,5 +64,14 @@ public class Student {
 
     public void setPlacementStatus(String placementStatus) {
         this.placementStatus = placementStatus;
+    }
+
+    public void setPlacedIn(String placedIn) {
+        this.placedIn = placedIn;
+        this.placementStatus = "PLACED";
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
