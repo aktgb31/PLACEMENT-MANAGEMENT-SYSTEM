@@ -151,7 +151,7 @@ public class Operations {
 
         try {
             Connection connection = Dao.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM students WHERE Email=? and Password=? ");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM students WHERE RegisterNo=? and Password=? ");
             statement.setString(1, registerNo);
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();

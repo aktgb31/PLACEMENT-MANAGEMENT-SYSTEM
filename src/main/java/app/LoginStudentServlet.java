@@ -15,15 +15,13 @@ public class LoginStudentServlet extends HttpServlet {
             throws ServletException, IOException {
         String rollNo = request.getParameter("registerNo");
         String password = request.getParameter("password");
-
         try {
             int user = Operations.studentLogin(rollNo, password);
             String destPage = "login.jsp";
-
             if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "home.jsp";
+                destPage = "student_home.jsp";
             } else {
                 String message = "Invalid email/password";
                 request.setAttribute("message", message);
