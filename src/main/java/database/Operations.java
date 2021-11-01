@@ -20,6 +20,7 @@ public class Operations {
             statement.setString(7, studentDetails.getPlacementStatus());
             statement.setString(8, studentDetails.getPlacedIn());
             statement.executeUpdate();
+            conn.close();
             return 1;
         } catch (Exception e) {
             System.out.println(e);
@@ -43,6 +44,7 @@ public class Operations {
             conn.close();
             return 1;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
@@ -68,6 +70,7 @@ public class Operations {
             conn.close();
             return answer;
         } catch (Exception e) {
+            System.out.println(e);
             return new ArrayList<>();
         }
     }
@@ -86,6 +89,7 @@ public class Operations {
             conn.close();
             return 1;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
@@ -123,6 +127,7 @@ public class Operations {
             conn.close();
             return 1;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
@@ -137,6 +142,7 @@ public class Operations {
             statement.executeUpdate();
             return 1;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
@@ -153,6 +159,7 @@ public class Operations {
                 return 1;
             }
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
         return 0;
@@ -170,6 +177,7 @@ public class Operations {
             }
             return 0;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
