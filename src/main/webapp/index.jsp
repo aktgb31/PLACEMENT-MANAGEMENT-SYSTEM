@@ -8,7 +8,7 @@
 <h1> "Login/SignUp"</h1>
 <a href="login.jsp">Login as Student</a>
 <a href="recruiter.jsp">Register as Student </a>
-<a href="placementofficer_login.jsp.jsp">Placemecnt Officer Login</a>
+<a href="placementofficer_login.jsp">Placemecnt Officer Login</a>
 <br/>
 </body>
 </html>
