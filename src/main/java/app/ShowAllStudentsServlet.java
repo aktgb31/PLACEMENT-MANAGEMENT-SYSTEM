@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import com.google.gson.*;
 
-@WebServlet("/showAllStudents")
+
 public class ShowAllStudentsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

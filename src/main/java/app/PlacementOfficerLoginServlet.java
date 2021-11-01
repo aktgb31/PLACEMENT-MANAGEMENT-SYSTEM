@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/login_p")
+
 public class PlacementOfficerLoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

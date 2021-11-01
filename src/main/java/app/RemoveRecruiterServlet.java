@@ -11,7 +11,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/removerecruiter")
+
 public class RemoveRecruiterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
