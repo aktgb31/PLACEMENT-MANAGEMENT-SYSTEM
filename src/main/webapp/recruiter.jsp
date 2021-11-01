@@ -11,12 +11,14 @@
     <title>Recruiter</title>
 </head>
 <body>
+<form method="POST" action="">
 <input type="text" name="name"  placeholder="Enter your Name" required></input>
 <input type="text" name="recruiterId"   placeholder="Enter your RecruiterId" required></input>
 <input type="text" name="role"   placeholder="Enter your Role" required></input>
 <input type="number" name="ctc"   placeholder="Enter your CTC" required></input>
 <input type="text" name="location"   placeholder="Enter your Location" ></input>
 <input type="number" name="duration" placeholder="Duration"></input>
-<div className="button" >Register</div>
+<input type="submit" value="Submit">
+</form>
 </body>
 </html>
