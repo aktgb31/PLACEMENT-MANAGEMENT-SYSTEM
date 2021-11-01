@@ -1,11 +1,9 @@
-package net.codejava;
+package app;
 
-import com.mysql.jdbc.Connection;
-import database.Dao;
-import database.Operations;
+import database.*;
 
 import java.io.*;
-import java.sql.SQLException;
+import java.sql.*;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;

@@ -1,48 +1,39 @@
-package net.codejava;
+package app;
 
-import app.Application;
-import app.Recruiter;
-import com.mysql.jdbc.Connection;
-import database.Dao;
-import database.Operations;
+import database.*;
 
 import java.io.*;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.*;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/apply")
-public class ApplyforCompanyServlet extends HttpServlet {
+@WebServlet("/login_p")
+public class PlacementOfficerLoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ApplyforCompanyServlet() {
+    public PlacementOfficerLoginServlet() {
         super();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String StudentID = request.getParameter("registerNo");
-        int recruiterId = Integer.parseInt(request.getParameter("recruiterId"));
-        Application details = new Application();
-        details.setStudentId(StudentID);
-        details.setRecruiterId(recruiterId);
-
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        int password = Integer.parseInt(request.getParameter("password"));
 
         Operations userDao=new Operations();
 
         try {
-            int user = userDao.studentAppliesForCompany(details);
-            String destPage = "home_s.jsp";
+            int user = userDao.placementOfficerLogin(userId, password);
+            String destPage = "placementofficer_login.jsp";
 
             if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-
+                destPage = "placement_home.jsp";
             } else {
-                String message = "Error";
+                String message = "Invalid email/password";
                 request.setAttribute("message", message);
             }
 
@@ -54,3 +45,5 @@ public class ApplyforCompanyServlet extends HttpServlet {
         }
     }
 }
+
+

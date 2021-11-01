@@ -8,6 +8,5 @@
 <h1> "Login/SignUp"
 </h1>
 <br/>
-<a href="hello-servlet">Login</a>
 </body>
 </html>

@@ -1,9 +1,9 @@
-package net.codejava;
+package app;
 
 import app.Recruiter;
-import app.Student;
 import database.Dao;
 import database.Operations;
+import com.google.gson.*;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import com.google.gson.*;
 
-@WebServlet("/home")
-public class ShowAllStudentsServlet extends HttpServlet {
+
+@WebServlet("/showRecruiters")
+public class ShowCompaniesServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ShowAllStudentsServlet() {
+    public ShowCompaniesServlet() {
         super();
     }
 
@@ -26,13 +26,13 @@ public class ShowAllStudentsServlet extends HttpServlet {
             throws ServletException, IOException {
 
 
-        ArrayList<Student> details = new ArrayList<Student>();
-        Operations userDao=new Operations();
+        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        Operations userDao = new Operations();
 
 
         try {
             //Connection user = userDao.addStudent(name,registerNo,email,phoneNo,cgpa, placementStatus,placedIn,password);
-            details=userDao.getAllStudents();
+            details = userDao.getAllRecruiters();
             Gson gson = new Gson();
 
             String userJSON = gson.toJson(details);
@@ -41,7 +41,7 @@ public class ShowAllStudentsServlet extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             printWriter.write(userJSON);
             printWriter.close();
-            String destPage = "showstudents.jsp";
+            String destPage = "showRecruiters.jsp";
 
             RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
             dispatcher.forward(request, response);

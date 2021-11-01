@@ -1,12 +1,10 @@
-package net.codejava;
+package app;
 
-import app.Recruiter;
-import com.mysql.jdbc.Connection;
-import database.Dao;
-import database.Operations;
+import app.*;
+import database.*;
 
 import java.io.*;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import javax.servlet.*;

@@ -1,41 +1,44 @@
-package net.codejava;
+package app;
 
-import com.mysql.jdbc.Connection;
-import database.Dao;
-import database.Operations;
+import database.*;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/login_p")
-public class PlacementOfficerLoginServlet extends HttpServlet {
+@WebServlet("/apply")
+public class ApplyforCompanyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public PlacementOfficerLoginServlet() {
+    public ApplyforCompanyServlet() {
         super();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        int password = Integer.parseInt(request.getParameter("password"));
+        String StudentID = request.getParameter("registerNo");
+        int recruiterId = Integer.parseInt(request.getParameter("recruiterId"));
+        Application details = new Application();
+        details.setStudentId(StudentID);
+        details.setRecruiterId(recruiterId);
+
 
         Operations userDao=new Operations();
 
         try {
-            int user = userDao.placementOfficerLogin(userId, password);
-            String destPage = "placementofficer_login.jsp";
+            int user = userDao.studentAppliesForCompany(details);
+            String destPage = "home_s.jsp";
 
             if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "placement_home.jsp";
+
             } else {
-                String message = "Invalid email/password";
+                String message = "Error";
                 request.setAttribute("message", message);
             }
 
@@ -47,5 +50,3 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
         }
     }
 }
-
-

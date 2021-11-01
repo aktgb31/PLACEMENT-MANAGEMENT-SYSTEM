@@ -1,19 +1,15 @@
-package net.codejava;
-
-import app.Recruiter;
-import com.mysql.jdbc.Connection;
-import database.Dao.*;
-import database.Operations;
+package app;
+import database.*;
 
 import java.io.*;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/addrecruiter")
+@WebServlet("/recruiter")
 public class AddRecruiterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +36,7 @@ public class AddRecruiterServlet extends HttpServlet {
 
         try {
             int user = userDao.addRecruiter(details);
-            String destPage = "placement_home.jsp";
+            String destPage = "recruiter.jsp";
 
             if (user != 0) {
                 HttpSession session = request.getSession();
