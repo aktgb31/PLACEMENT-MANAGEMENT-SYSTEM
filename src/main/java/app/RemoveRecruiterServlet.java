@@ -11,7 +11,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/removerecruiter")
+
 public class RemoveRecruiterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class RemoveRecruiterServlet extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int recruiterid = Integer.parseInt(request.getParameter("recruiterId"));
 
@@ -44,7 +44,7 @@ public class RemoveRecruiterServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }

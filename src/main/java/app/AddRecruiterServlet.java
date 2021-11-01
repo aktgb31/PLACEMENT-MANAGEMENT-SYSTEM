@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/recruiter")
+
 public class AddRecruiterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -17,7 +17,7 @@ public class AddRecruiterServlet extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String role = request.getParameter("role");
@@ -51,7 +51,7 @@ public class AddRecruiterServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }
