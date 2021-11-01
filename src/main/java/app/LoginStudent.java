@@ -33,7 +33,7 @@ public class LoginStudent extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }
