@@ -13,16 +13,9 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-
-@WebServlet("/showRecruiters")
 public class ShowCompaniesServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    public ShowCompaniesServlet() {
-        super();
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
@@ -47,7 +40,7 @@ public class ShowCompaniesServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } catch (Exception e) {
-            throw new ServletException(e);
+            System.out.println(e);
         }
     }
 }
