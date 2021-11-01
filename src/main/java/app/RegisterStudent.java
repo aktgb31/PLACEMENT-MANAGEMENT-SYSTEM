@@ -32,6 +32,7 @@ public class RegisterStudent extends HttpServlet {
         details.setPlacedIn(placedIn);
         try {
             int user = Operations.addStudent(details);
+            System.out.println(user);
             String destPage = "register.jsp";
 
             if (user != 0) {

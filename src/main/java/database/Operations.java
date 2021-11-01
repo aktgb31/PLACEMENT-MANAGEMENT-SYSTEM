@@ -20,9 +20,9 @@ public class Operations {
             statement.setString(7, studentDetails.getPlacementStatus());
             statement.setString(8, studentDetails.getPlacedIn());
             statement.executeUpdate();
-            conn.close();
             return 1;
         } catch (Exception e) {
+            System.out.println(e);
             return 0;
         }
     }
