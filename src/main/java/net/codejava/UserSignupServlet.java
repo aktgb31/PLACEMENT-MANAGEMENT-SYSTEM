@@ -32,7 +32,7 @@ public class UserSignupServlet extends HttpServlet {
 
         String placedIn = "NULL";
         String password = request.getParameter("password");
-        ArrayList<Student> details = new ArrayList<Student>();
+        Student details = new Student();
         Dao userDao=new Dao();
         details.setName(name);
         details.setEmail(email);

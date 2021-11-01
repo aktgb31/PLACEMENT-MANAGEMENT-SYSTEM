@@ -26,7 +26,7 @@ public class RemoveRecruiterServlet extends HttpServlet {
 
 
         Dao userDao=new Dao();
-        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        Recruiter details = new Recruiter();
         details.setRecruiterId(recruiterid);
         try {
             Connection user = userDao.removeRecruiter(details);

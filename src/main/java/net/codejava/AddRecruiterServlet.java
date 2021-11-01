@@ -30,7 +30,7 @@ public class AddRecruiterServlet extends HttpServlet {
         String location = request.getParameter("location");
 
         Dao userDao=new Dao();
-        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
+        Recruiter details = new Recruiter();
         details.setName(name);
         details.setCtc(ctc);
         details.setRole(role);
@@ -38,7 +38,7 @@ public class AddRecruiterServlet extends HttpServlet {
         details.setDuration(duration);
 
         try {
-             Connection user = userDao.addRecruiter(details);
+            Connection user = userDao.addRecruiter(details);
             String destPage = "placement_home.jsp";
 
             if (user != null) {

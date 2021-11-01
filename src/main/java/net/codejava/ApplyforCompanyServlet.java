@@ -25,7 +25,7 @@ public class ApplyforCompanyServlet extends HttpServlet {
             throws ServletException, IOException {
         String StudentID = request.getParameter("registerNo");
         int recruiterId = Integer.parseInt(request.getParameter("recruiterId"));
-        ArrayList<Application> details = new ArrayList<Application>();
+        Application details = new Application();
         details.setStudentId(StudentID);
         details.setRecruiterId(recruiterId);
 
