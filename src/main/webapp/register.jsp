@@ -12,6 +12,13 @@
             alert("Register No. should be of length 9");
             return false;
         }
+        let phoneNo = document.getElementById("phoneNo").value;
+        console.log(phoneNo,phoneNo.length);
+        if(phoneNo.length!=10)
+        {
+            alert("Phone No. should be of length 10");
+            return false;
+        }
         return true;
     }
 
