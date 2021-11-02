@@ -37,4 +37,6 @@ create TABLE placement_officer
 (
     userId       INT PRIMARY KEY,
     password VARCHAR(40) NOT NULL
-)
+);
+# Adding a placement officer
+INSERT INTO placement_officer VALUES(1,'QWERTY');

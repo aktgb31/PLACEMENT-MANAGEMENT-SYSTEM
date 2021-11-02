@@ -20,12 +20,12 @@
         <url-pattern>/LoginStudent</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>GetCompanies</servlet-name>
-        <servlet-class>app.ShowCompaniesServlet</servlet-class>
+        <servlet-name>GetRecruiters</servlet-name>
+        <servlet-class>app.ShowRecruitersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetCompanies</servlet-name>
-        <url-pattern>/GetCompanies</url-pattern>
+        <servlet-name>GetRecruiters</servlet-name>
+        <url-pattern>/GetRecruiters</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>LoginPlacemenOfficer</servlet-name>
@@ -50,5 +50,13 @@
     <servlet-mapping>
         <servlet-name>ShowAllStudents</servlet-name>
         <url-pattern>/ShowAllStudents</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RemoveRecruiter</servlet-name>
+        <servlet-class>app.RemoveRecruiterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveRecruiter</servlet-name>
+        <url-pattern>/RemoveRecruiter</url-pattern>
     </servlet-mapping>
 </web-app>

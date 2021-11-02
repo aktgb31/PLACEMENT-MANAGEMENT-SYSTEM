@@ -68,7 +68,6 @@ public class Student {
 
     public void setPlacedIn(String placedIn) {
         this.placedIn = placedIn;
-        this.placementStatus = "PLACED";
     }
 
     public String getPassword() {

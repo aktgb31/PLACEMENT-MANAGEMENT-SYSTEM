@@ -1,24 +1,39 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mishr
-  Date: 01-11-2021
-  Time: 15:00
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Recruiter</title>
 </head>
-<body>
-<form method="POST" action="">
-<input type="text" name="name"  placeholder="Enter your Name" required></input>
-<input type="text" name="recruiterId"   placeholder="Enter your RecruiterId" required></input>
-<input type="text" name="role"   placeholder="Enter your Role" required></input>
-<input type="number" name="ctc"   placeholder="Enter your CTC" required></input>
-<input type="text" name="location"   placeholder="Enter your Location" ></input>
-<input type="number" name="duration" placeholder="Duration"></input>
-<input type="submit" value="Submit">
+<body style="text-align: center">
+<form action="AddRecruiter"  method="POST">
+    <h2 style="text-align: center;">Add a Recruiter</h2>
+    <table style="  margin-left: auto; margin-right:auto;">
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td>: <input name="name" type="text" id="name" required></td>
+        </tr>
+        <tr>
+            <td><label for="role">Role</label></td>
+            <td>: <input name="role" id="role" type="text" required></td>
+        </tr>
+        <tr>
+            <td><label for="ctc">CTC</label></td>
+            <td>: <input name="ctc" id="ctc" type="text" required></td>
+        </tr>
+        <tr>
+            <td><label for="location">Location</label></td>
+            <td>: <input name="location" id="location" type="text" required></td>
+        </tr>
+        <tr>
+            <td><label for="duration">Duration</label></td>
+            <td>: <input name="duration" id="duration" type="text" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input style="float: left;" type="reset"> <input style="float: right;" type="submit" name="submit"
+                                                                 value="Submit"></td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

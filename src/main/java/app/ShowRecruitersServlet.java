@@ -13,19 +13,15 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-public class ShowCompaniesServlet extends HttpServlet {
+public class ShowRecruitersServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
-        ArrayList<Recruiter> details = new ArrayList<Recruiter>();
-        Operations userDao = new Operations();
-
+        ArrayList<Recruiter> details ;
 
         try {
-            //Connection user = userDao.addStudent(name,registerNo,email,phoneNo,cgpa, placementStatus,placedIn,password);
-            details = userDao.getAllRecruiters();
+            details = Operations.getAllRecruiters();
             Gson gson = new Gson();
 
             String userJSON = gson.toJson(details);

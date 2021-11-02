@@ -15,7 +15,7 @@ public class PlacementOfficerLoginServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("userId"));
-        int password = Integer.parseInt(request.getParameter("password"));
+        String password = request.getParameter("password");
 
         try {
             int user = Operations.placementOfficerLogin(userId, password);

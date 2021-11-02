@@ -165,12 +165,12 @@ public class Operations {
         return 0;
     }
 
-    public static int placementOfficerLogin(int userId, int password) {
+    public static int placementOfficerLogin(int userId, String password) {
         try {
             Connection connection = Dao.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM placement_officer WHERE userId=? and password=? ");
             statement.setInt(1, userId);
-            statement.setInt(2, password);
+            statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return 1;

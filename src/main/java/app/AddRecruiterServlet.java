@@ -19,8 +19,6 @@ public class AddRecruiterServlet extends HttpServlet {
         String ctc = request.getParameter("ctc");
         String duration = request.getParameter("duration");
         String location = request.getParameter("location");
-
-        Operations userDao = new Operations();
         Recruiter details = new Recruiter();
         details.setName(name);
         details.setCtc(ctc);
@@ -29,12 +27,13 @@ public class AddRecruiterServlet extends HttpServlet {
         details.setDuration(duration);
 
         try {
-            int user = userDao.addRecruiter(details);
+            int user = Operations.addRecruiter(details);
             String destPage = "recruiter.jsp";
 
             if (user != 0) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
+                destPage = "placement_home.jsp";
 
             } else {
                 String message = "Fill Details correctly";

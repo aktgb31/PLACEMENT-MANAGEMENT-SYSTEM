@@ -3,18 +3,56 @@
 <head>
     <title>Register Student</title>
 </head>
-<body>
-<form action="RegisterStudent" method="POST">
-    <input type="text" name="name" placeholder="Enter your Name" required></input>
-    <input type="email" name="email" placeholder="Enter your Email" required></input>
-    <input type="password" name="password" placeholder="Enter your Password" required></input>
-    <input type="number" name="cgpa" step="0.01" placeholder="Enter your Cgpa" required></input>
-    <input type="number" name="phoneNo" placeholder="Enter your Phone Number" required></input>
-    <input type="text" name="registerNo" placeholder="Enter your Register Number"></input>
-    <input type="text" name="placedIn" placeholder="Enter your placedIn"></input>
-    <input type="text" name="placementStatus" value="Not Placed" placeholder="Enter your placementStatus"
-           disabled></input>
-    <input type="submit" value="Submit">
+<script type="text/javascript">
+    function validate() {
+        let registerNo = document.getElementById("registerNo").value;
+        console.log(registerNo,registerNo.length);
+        if(registerNo.length!=9)
+        {
+            alert("Register No. should be of length 9");
+            return false;
+        }
+        return true;
+    }
+
+</script>
+<body style="text-align: center">
+<form action="RegisterStudent" onsubmit="return validate()" method="POST">
+    <h2 style="text-align: center;">Register as Student</h2>
+    <table style="  margin-left: auto; margin-right:auto;">
+        <tr>
+            <td><label for="registerNo">Register No.</label></td>
+            <td>: <input name="registerNo" type="text" id="registerNo" required></td>
+        </tr>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td>: <input name='name' type="text" id="name" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>: <input name="password" id="password" type="password" required></td>
+        </tr>
+        <tr>
+            <td><label for="phoneNo">Mobile</label></td>
+            <td>: <input name="phoneNo" type="tel" id="phoneNo" required></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email ID</label></td>
+            <td>: <input name="email" type="email" id="email" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="cgpa">CGPA</label></td>
+            <td>: <input name="cgpa" type="number" step=0.01 min='0' max='10' value='0' id="cgpa" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input style="float: left;" type="reset"> <input style="float: right;" type="submit" name="submit"
+                                                                 value="Submit"></td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
+
+

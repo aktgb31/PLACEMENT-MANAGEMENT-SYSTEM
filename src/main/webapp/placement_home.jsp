@@ -1,17 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mishr
-  Date: 01-11-2021
-  Time: 10:53
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Placement Officer HomePage</title>
 </head>
-<body>
-    <h1>Placement Officer Home Page</h1>
-    <a href="recruiter.jsp">Add companies</a>
+<body style="text-align: center">
+    <h2>Placement Officer Home Page</h2>
+    <a href="showStudents.jsp">Show all Student registered for placement</a><br>
+    <a href="recruiter.jsp">Add Recruiters</a><br>
+    <a href="showRecruiters.jsp">Show all Recruiters</a>
 </body>
 </html>

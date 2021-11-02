@@ -17,19 +17,15 @@ public class RegisterStudentServlet extends HttpServlet {
         String email = request.getParameter("email");
         String phoneNo = request.getParameter("phoneNo");
         float cgpa = Float.parseFloat(request.getParameter("cgpa"));
-        String placementStatus = "NULL";
-
-        String placedIn = "NULL";
         String password = request.getParameter("password");
         Student details = new Student();
         details.setName(name);
         details.setEmail(email);
         details.setCgpa(cgpa);
         details.setPassword(password);
-        details.setPlacementStatus(placementStatus);
         details.setPhoneNo(phoneNo);
         details.setRegisterNo(registerNo);
-        details.setPlacedIn(placedIn);
+        details.setPlacementStatus("NOT PLACED");
         try {
             int user = Operations.addStudent(details);
             System.out.println(user);

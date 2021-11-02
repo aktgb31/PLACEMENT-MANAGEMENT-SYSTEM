@@ -1,34 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mishr
-  Date: 01-11-2021
-  Time: 10:52
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="app.Recruiter" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="database.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import = "java.io.*,java.util.*" %>
 <html>
 <head>
     <title>Student Home Page</title>
 </head>
-<body>
-<h1>Student Home Page</h1>
-    <h2>HTTP Header Request Example</h2>
 
-    <table width = "100%" border = "1" align = "center">
-        <tr bgcolor = "#949494">
-            <th>Header Name</th>
-            <th>Header Value(s)</th>
-        </tr>
-        <%
-            Enumeration headerNames = request.getHeaderNames();
-            while(headerNames.hasMoreElements()) {
-                String paramName = (String)headerNames.nextElement();
-                out.print("<tr><td>" + paramName + "</td>\n");
-                String paramValue = request.getHeader(paramName);
-                out.println("<td> " + paramValue + "</td></tr>\n");
+<body style="text-align: center">
+<h2>You can apply in the following companies:</h2>
+<table style="text-align: center; border: 1px solid black;  border-collapse: collapse; margin-left: auto;  margin-right: auto; width: 50%;">
+    <tr>
+        <th>Recruiter Id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Ctc</th>
+        <th>Location</th>
+        <th>Duration</th>
+    </tr>
+    <%
+        try {
+            ArrayList<Recruiter> details = Operations.getAllRecruiters();
+            for (int i = 0; i < details.size(); i++) {
+                out.print("<tr>");
+                out.print("<td>" + details.get(i).getRecruiterId() + "</td>");
+                out.print("<td>" + details.get(i).getName() + "</td>");
+                out.print("<td>" + details.get(i).getRole() + "</td>");
+                out.print("<td>" + details.get(i).getCtc() + "</td>");
+                out.print("<td>" + details.get(i).getLocation() + "</td>");
+                out.print("<td>" + details.get(i).getDuration() + "</td>");
+                out.print("</tr>");
             }
-        %>
-    </table>
+        } catch (Exception e) {
+            out.println("<h1>Error: " + e.getMessage() + "</h1>");
+        }
+    %>
+</table>
 </body>
 </html>
